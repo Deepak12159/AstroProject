@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hindu Astrological Chart</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 95vh;
+            height: 95vh;
+            background-image: radial-gradient(circle at center, #f0f0f0 0%, #e0e0e0 70%, #d0d0d0 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: rotateChart 60s linear infinite;
+            overflow: visible;
+        }
+        @keyframes rotateChart {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .earth {
+            position: absolute;
+            width: 28%;
+            height: 28%;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            font-size: 1.4em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ccc;
+            background-image: linear-gradient(to bottom right, #fffafa, #f8f8ff);
+        }
+
+        .ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+        }
+        .ring:nth-child(2) {
+            animation: rotateRing1 40s linear infinite;
+        }
+        .ring:nth-child(3) {
+            animation: rotateRing2 50s linear infinite;
+        }
+        .ring:nth-child(4) {
+            animation: rotateRing3 60s linear infinite;
+        }
+        @keyframes rotateRing1 {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotateRing2 {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotateRing3 {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .outer {
+           /* border: 1px solid #ccc;  Remove borders.  */
+        }
+
+        .middle {
+           /* border: 1px solid #ccc; */
+        }
+
+        .inner {
+            /*border: 1px solid #ccc;*/
+        }
+
+        .labels {
+           /* border: 1px solid #ccc; */
+        }
+
+        .section, .label {
+            position: absolute;
+            text-align: center;
+            padding: 2px 5px;
+            box-sizing: border-box;
+            color: white;
+            font-size: 0.8em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .section:hover, .label:hover {
+            transform: scale(1.1);
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+       .label{
+          font-size: 0.9em;
+       }
+
+        /* Color styling  */
+        .section.aquarius, .label.aquarius { background-color: #AFEEEE;  }
+        .section.capricorn, .label.capricorn { background-color: #90EE90; }
+        .section.sagittarius, .label.sagittarius { background-color: #F5DEB3;  }
+        .section.scorpio, .label.scorpio { background-color: #CD853F;  }
+        .section.libra, .label.libra { background-color: #D3D3D3; }
+        .section.virgo, .label.virgo { background-color: #EEE8AA;  }
+        .section.leo, .label.leo { background-color: #FFA500;  }
+        .section.cancer, .label.cancer { background-color: #F0F8FF;  }
+        .section.gemini, .label.gemini { background-color: #98FB98;  }
+        .section.taurus, .label.taurus { background-color: #8FBC8F;  }
+        .section.aries, .label.aries { background-color: #FA8072;  }
+        .section.pisces, .label.pisces { background-color: #D8BFD8;  }
+
+        .section.saturn { background-color: #708090;  }
+        .section.jupiter { background-color: #B8860B;  }
+        .section.mars { background-color: #DC143C;  }
+        .section.venus { background-color: #FF69B4;  }
+        .section.mercury { background-color: #663399;  }
+        .section.rahu { background-color: #4A148C;   }
+        .section.ketu { background-color: #1A237E;   }
+        .section.sun { background-color: #FFD700;  }
+        .section.moon { background-color: #E0E0E0;  }
+
+        .section.ashwini { background-color: #A9A9A9;  }
+        .section.bharani { background-color: #BC8F8F;  }
+        .section.krittika { background-color: #CD5C5C;  }
+        .section.rohini { background-color: #DDA0DD;  }
+        .section.mrigashira { background-color: #AFEEEE;  }
+        .section.ardra { background-color: #40E0D0;  }
+        .section.punarvasu { background-color: #ADFF2F;  }
+        .section.pushya { background-color: #4682B4;  }
+        .section.ashlesha { background-color: #FA8072;  }
+        .section.magha { background-color: #FF4500;  }
+        .section.purva-phalguni { background-color: #FFDAB9;  }
+        .section.uttara-phalguni { background-color: #FFF5EE;  }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+        .circle1 {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border-color: #b0c4de;
+        }
+        .circle2{
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+             border-color: #b0c4de;
+        }
+        .circle3{
+            width: 40%;
+            height: 40%;
+            top: 30%;
+            left: 30%;
+             border-color: #b0c4de;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <div class="earth">Earth</div>
+
+        <div class="ring outer">
+            <div class="section aquarius">Aquarius</div>
+            <div class="section capricorn">Capricorn</div>
+            <div class="section sagittarius">Sagittarius</div>
+            <div class="section scorpio">Scorpio</div>
+            <div class="section libra">Libra</div>
+            <div class="section virgo">Virgo</div>
+            <div class="section leo">Leo</div>
+            <div class="section cancer">Cancer</div>
+            <div class="section gemini">Gemini</div>
+            <div class="section taurus">Taurus</div>
+            <div class="section aries">Aries</div>
+            <div class="section pisces">Pisces</div>
+        </div>
+
+        <div class="ring middle">
+            <div class="section saturn">Saturn</div>
+            <div class="section jupiter">Jupiter</div>
+            <div class="section mars">Mars</div>
+            <div class="section venus">Venus</div>
+            <div class="section mercury">Mercury</div>
+            <div class="section rahu">Rahu</div>
+            <div class="section ketu">Ketu</div>
+            <div class="section sun">Sun</div>
+            <div class="section moon">Moon</div>
+        </div>
+
+        <div class="ring inner">
+            <div class="section ashwini">Ashwini</div>
+            <div class="section bharani">Bharani</div>
+            <div class="section krittika">Krittika</div>
+            <div class="section rohini">Rohini</div>
+            <div class="section mrigashira">Mrigashira</div>
+            <div class="section ardra">Ardra</div>
+            <div class="section punarvasu">Punarvasu</div>
+            <div class="section pushya">Pushya</div>
+            <div class="section ashlesha">Ashlesha</div>
+            <div class="section magha">Magha</div>
+            <div class="section purva-phalguni">Purva Phalguni</div>
+            <div class="section uttara-phalguni">Uttara Phalguni</div>
+        </div>
+
+        <div class="ring labels">
+            <div class="label aries">Aries</div>
+            <div class="label taurus">Taurus</div>
+            <div class="label gemini">Gemini</div>
+            <div class="label cancer">Cancer</div>
+            <div class="label leo">Leo</div>
+            <div class="label virgo">Virgo</div>
+            <div class="label libra">Libra</div>
+            <div class="label scorpio">Scorpio</div>
+            <div class="label sagittarius">Sagittarius</div>
+            <div class="label capricorn">Capricorn</div>
+            <div class="label aquarius">Aquarius</div>
+            <div class="label pisces">Pisces</div>
+        </div>
+        <div class = "circle circle1"></div>
+        <div class = "circle circle2"></div>
+        <div class = "circle circle3"></div>
+    </div>
+    <script>
+       const chartContainer = document.querySelector('.chart-container');
+        const rings = document.querySelectorAll('.ring');
+        const earth = document.querySelector('.earth');
+        const centerX = chartContainer.offsetWidth / 2;
+        const centerY = chartContainer.offsetHeight / 2;
+        const radiusFactors = [0.88, 0.68, 0.4];
+        const labelRadiusFactor = 1.05;
+
+        function resizeAndReposition() {
+            const containerWidth = chartContainer.offsetWidth;
+            const containerHeight = chartContainer.offsetHeight;
+            const newCenterX = containerWidth / 2;
+            const newCenterY = containerHeight / 2;
+
+            rings.forEach((ring, index) => {
+                const sections = ring.querySelectorAll('.section, .label');
+                const radius = (containerWidth / 2) * radiusFactors[index];
+
+                sections.forEach((section, sectionIndex) => {
+                    const angle = (sectionIndex / sections.length) * 2 * Math.PI - Math.PI / 2;
+                    const x = newCenterX + radius * Math.cos(angle) - (section.offsetWidth / 2);
+                    const y = newCenterY + radius * Math.sin(angle) - (section.offsetHeight / 2);
+
+                    section.style.left = `${x}px`;
+                    section.style.top = `${y}px`;
+                });
+            });
+
+            const labelRadius = (containerWidth / 2) * labelRadiusFactor;
+            const labels = document.querySelectorAll('.label');
+             labels.forEach((label, labelIndex) => {
+                const angle = (labelIndex / labels.length) * 2 * Math.PI - Math.PI / 2;
+                const x = newCenterX + labelRadius * Math.cos(angle) - (label.offsetWidth / 2);
+                const y = newCenterY + labelRadius * Math.sin(angle) - (label.offsetHeight / 2);
+
+                label.style.left = `${x}px`;
+                label.style.top = `${y}px`;
+            });
+
+             // Adjust Earth size relative to container
+            const earthSize = containerWidth * 0.28;
+            earth.style.width = `${earthSize}px`;
+            earth.style.height = `${earthSize}px`;
+            earth.style.fontSize = `${earthSize * 0.14}px`;
+
+        }
+        resizeAndReposition();
+        window.addEventListener('resize', resizeAndReposition);
+    </script>
+</body>
+</html>
